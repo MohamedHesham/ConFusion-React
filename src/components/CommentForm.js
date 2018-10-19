@@ -22,6 +22,8 @@ class Comment extends Component {
     }
 
     handleSubmit(values) {
+        this.toggle();
+        this.props.addComment(this.props.dishId, values.Rating, values.name, values.message);
         console.log('Current State is: ' + JSON.stringify(values));
         alert('Current State is: ' + JSON.stringify(values));
     }
