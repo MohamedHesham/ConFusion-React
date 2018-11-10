@@ -1,22 +1,19 @@
 import * as ActionTypes from './ActionTypes';
 
-export const Dishes = (state = {
-    isLoading: true, //true because dishes is an empty array
-    errMess: null, //if fetching didn't work
-    dishes: [] //filled by addDishes
-    }, action) =>
-{
-    switch(action.type){
+export const Dishes = (state = { isLoading: true,
+    errMess: null,
+    dishes:[]}, action) => {
+    switch (action.type) {
         case ActionTypes.ADD_DISHES:
-            return{...state, isLoading:false, errMess: null, dishes: action.payload} // still immutable
+            return {...state, isLoading: false, errMess: null, dishes: action.payload};
 
         case ActionTypes.DISHES_LOADING:
-            return{...state, isLoading:true, errMess: null, dishes: []} // still immutable
-            
+            return {...state, isLoading: true, errMess: null, dishes: []}
+
         case ActionTypes.DISHES_FAILED:
-            return{...state, isLoading:false, errMess: action.payload, dishes: []} // still immutable
-            
+            return {...state, isLoading: false, errMess: action.payload};
+
         default:
             return state;
     }
-}
+};
